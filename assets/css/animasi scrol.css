@@ -1,0 +1,8 @@
+.fh5co-social {
+  opacity: 0;
+  transition: opacity 2.0s;
+}
+
+.show {
+  opacity: 1;
+}

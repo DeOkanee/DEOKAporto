@@ -1,0 +1,246 @@
+/* Ukuran responsif untuk perangkat mobile */
+@media (max-width: 767px) {
+  body {
+    background-image: url("../img/919.jpg");
+  }
+
+  /*HOME*/
+  #home {
+    margin-top: -35%;
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+
+  #home .content1 {
+    padding: 10% 6%;
+    /* Mengurangi padding di sisi kanan */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    /* Mengisi 90% lebar parent */
+  }
+
+  .home .content1 h2 {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+
+  .home .content1 h2 span {
+    font-size: 1.3em;
+    font-weight: 300;
+  }
+
+  .animasi-text {
+    height: 70px;
+  }
+
+  .animasi-text h3 {
+    font-size: 1.3em;
+  }
+
+  .animasi-text h3:nth-child(1) {
+    animation: text-move 10s infinite;
+  }
+
+  @keyframes text-move {
+    0% {
+      margin-top: 0;
+    }
+
+    25% {
+      margin-top: -70px;
+    }
+
+    50% {
+      margin-top: -140px;
+    }
+
+    75% {
+      margin-top: -70px;
+    }
+
+    100% {
+      margin-top: 0;
+    }
+  }
+
+  .atasbtns {
+    padding-top: 30px;
+    text-align: center;
+  }
+
+  .btns {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 2px;
+  }
+
+  /* konten kanan */
+  #home .content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 20%;
+  }
+
+  /* foto di halaman home */
+  .home .img {
+    width: 30vh;
+  }
+  /*HOME*/
+  /* Responsif untuk perangkat dengan lebar maksimum 919px */
+
+  /*ICON SOSIAL MEDIA*/
+  /* sosial*/
+  .fh5co-social {
+    margin-top: -10%;
+    text-align: center;
+    padding: 10% 5%;
+  }
+  @keyframes blink {
+    0% {
+        color: white;
+    }
+    20% {
+        color: blue;
+    }
+    40% {
+        color: red;
+    }
+    60% {
+        color: rgb(177, 0, 177);
+    }
+    80% {
+        color: rgb(0, 192, 0);
+    }
+    100% {
+        color: white;
+    }
+}
+
+.fh5co-social h2 {
+    animation: blink 5s infinite;
+}
+
+  .fh5co-social .site-container {
+    text-align: center;
+  }
+
+  .social {
+    flex-direction: column;
+  }
+
+  .social h2 {
+    font-size: 1.6em;
+    margin-bottom: 9%;
+  }
+
+
+  .social-icons a {
+    margin: 2px;
+  }
+
+  .social-icons i {
+    border-radius: 50%;
+    padding: 9px 10px;
+  }
+
+  /*game*/
+  .game {
+    margin-top: -20%;
+    margin-bottom: -10%;
+    padding-top: 10%;
+    padding-bottom: 45%;
+  }
+
+  .title h2 {
+    margin-top: 7%;
+    margin-bottom: 10%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.9em;
+  }
+  .hiburan h2{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.9em;
+  }
+
+  #pergeseran {
+    margin-top: 7px;
+    margin-bottom: 40%;
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s ease;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    left: 0;
+    padding: 0 50px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .geser p {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .geser p a {
+    margin-left: 10px;
+  }
+
+  #pergeseran > * {
+    flex-wrap: nowrap;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+    width: 90%;
+    /* Mengisi 90% lebar parent */
+    min-height: 290px;
+    margin: 0 50px 0 0;
+    scroll-snap-align: center;
+  }
+
+  /*MUSIK*/
+  .musik {
+    font-size: 15px;
+    height: 28px;
+    width: 23%;
+  }
+
+  /* copright */
+  footer {
+    position: relative;
+    background-color: #292929;
+    bottom: -1rem;
+    width: auto;
+    padding: 8px;
+  }
+
+  .bawah p {
+    padding-top: 15px;
+    color: #fff;
+    font-size: 15px;
+  }
+}

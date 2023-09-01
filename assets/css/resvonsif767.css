@@ -1,0 +1,235 @@
+@media (max-width: 991px) {
+    body {
+        font-weight: 300 !important;
+        background-image: url("../img/919.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        align-items: center;
+    }
+
+    /*HOME*/
+    .home {
+        flex-direction: column-reverse;
+        padding-top: 30%;
+        padding-bottom: 25%;
+    }
+
+    .home .content1 {
+        padding: 10% 20%;
+    }
+
+    .home .content1 h2 {
+        font-size: 1.4em;
+        font-weight: 300;
+    }
+
+    .home .content1 h2 span {
+        font-size: 1.3em;
+        font-weight: 300;
+    }
+
+    .animasi-text {
+        height: 70px;
+    }
+
+    .animasi-text h3 {
+        font-size: 1.3em;
+
+    }
+
+    .animasi-text h3:nth-child(1) {
+        animation: text-move 10s infinite;
+    }
+
+    @keyframes text-move {
+        0% {
+            margin-top: 0;
+        }
+
+        25% {
+            margin-top: -70px;
+        }
+
+        50% {
+            margin-top: -140px;
+        }
+
+        75% {
+            margin-top: -70px;
+        }
+
+        100% {
+            margin-top: 0;
+        }
+    }
+
+    .atasbtns {
+        padding-top: 30px;
+    }
+
+    .btns {
+        font-size: 1em;
+        padding: 9px;
+        margin: 2px;
+    }
+
+    /* konten kanan */
+    .home .content2 {
+        margin-right: 0;
+    }
+
+    /* foto di halaman home */
+    .home .img {
+        width: 30vh;
+    }
+
+    /*ABOUT*/
+    .About h1 {
+        padding-top: 10%;
+        padding-bottom: 5%;
+        font-size: 2em;
+    }
+
+    .aboutblog {
+        flex-direction: column;
+        padding-bottom: 10%;
+    }
+
+    .aboutblog .blogimg {
+        width: 50%;
+    }
+
+    .aboutblog .img {
+        width: 19vh;
+    }
+
+    /* text-blog*/
+    .aboutblog .text-blog {
+        width: 105%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .aboutblog p {
+        font-size: 1.3em;
+    }
+
+    /*ICON SOSIAL MEDIA*/
+    /* sosial*/
+    .fh5co-social {
+        text-align: center;
+        padding: 1px 0;
+        margin-top: 70%;
+        margin-bottom: 80%;
+    }
+
+    .fh5co-social .site-container {
+        text-align: center;
+    }
+
+    .social {
+        flex-direction: column;
+    }
+
+    .social h2 {
+        font-size: 1.5em;
+        margin-bottom: 9%;
+    }
+
+    .social-icons {
+        margin-top: 5%;
+    }
+
+    .social-icons a {
+        margin: 2px;
+    }
+
+    .social-icons i {
+        border-radius: 50%;
+        padding: 8px 8px;
+    }
+
+    /*game*/
+    .game {
+        margin-bottom: -25%;
+    }
+
+    .title h2 {
+        padding-top: 20%;
+        margin-bottom: 10%;
+        text-align: center;
+        color: #fff;
+        font-size: 1.9em;
+    }
+
+    #pergeseran {
+        margin-top: 7px;
+        margin-bottom: 40%;
+        opacity: 1;
+        visibility: visible;
+        transition: all 1s ease;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        width: 100%;
+        left: 0;
+        padding: 0 50px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .geser a {
+        border: 2px solid #202020;
+        margin: 10px;
+        padding: 0 7px;
+        border-radius: 10px;
+        color: rgb(21, 93, 247);
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+    #pergeseran>* {
+        flex-wrap: nowrap;
+        padding: 10px 25px;
+        text-align: center;
+        font-size: 25px;
+        font-family: "Poppins", sans-serif;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        flex-shrink: 0;
+        width: 100%;
+        min-height: 290px;
+        margin: 0 50px 0 0;
+        scroll-snap-align: center;
+    }
+
+    /*MUSIK*/
+    .musik {
+        font-size: 15px;
+        height: 28px;
+        width: 23%;
+    }
+
+    /* copright */
+    footer {
+        position: relative;
+        background-color: #292929;
+        bottom: -1rem;
+        width: auto;
+        padding: 8px;
+    }
+
+    .bawah p {
+        padding-top: 15px;
+        color: #fff;
+        font-size: 15px;
+    }
+}

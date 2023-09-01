@@ -1,0 +1,322 @@
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300 !important;
+  background-image: url("../img/walpaperr.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+}
+
+/* konten kiri */
+.home .content1 {
+  margin-left: 10%;
+  width: 500px;
+}
+
+.home .content1 h2 {
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.home .content1 h2 span {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.animasi-text {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+}
+
+.animasi-text h3 {
+  color: #ffffff;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: 1px;
+}
+
+.animasi-text h3:nth-child(1) {
+  animation: text-move 10s infinite;
+}
+
+@keyframes text-move {
+  0% {
+    margin-top: 0;
+  }
+
+  25% {
+    margin-top: -70px;
+  }
+
+  50% {
+    margin-top: -140px;
+  }
+
+  75% {
+    margin-top: -70px;
+  }
+
+  100% {
+    margin-top: 0;
+  }
+}
+
+.atasbtns {
+  padding-top: 60px;
+}
+
+.btns {
+  background-color: #3269ff;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.btns:hover {
+  background: rgb(255, 255, 255);
+  color: #3a6cf4;
+}
+
+/* konten kanan */
+.home .content2 {
+  width: 300px;
+  margin-left: 15%;
+}
+
+/* foto di halaman home */
+.home .img {
+  border: 2px solid white;
+  border-radius: 40% 10%;
+  width: 60vh;
+  position: relative;
+  display: flex;
+}
+.home .img:hover {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+}
+
+/*ICON SOSIAL MEDIA*/
+/* sosial*/
+.fh5co-social {
+  text-align: center;
+  position: relative;
+  padding: 1px 0;
+  margin-top: 22%;
+  margin-bottom: 22%;
+}
+
+.fh5co-social .site-container {
+  text-align: center;
+}
+
+.social {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.social h2 {
+  color: white;
+  font-size: 2.1em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.social-icons {
+  margin-top: 3%;
+  text-align: center;
+  transition: transform 0.9s;
+}
+
+.social-icons a {
+  text-align: center;
+  position: relative;
+  margin: 10px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons i {
+  text-align: center;
+  transition: 0.3s ease;
+  color: #ffffff;
+  left: 50%;
+  top: 50%;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  padding: 10px 10px;
+}
+
+#facebook:hover {
+  transform: translateY(-10px);
+  background-color: #1f469b;
+  color: #ffffff;
+  box-shadow: 0 0 20px 5px #1f469b;
+}
+
+#whatsapp:hover {
+  transform: translateY(-10px);
+  background-color: #25d366;
+  color: #ffffff;
+  box-shadow: 0 0 20px 5px #25d366;
+}
+
+#instagram:hover {
+  transform: translateY(-10px);
+  background-image: linear-gradient(to left, #e72309, #ac0696);
+  color: #ffffff;
+  box-shadow: 0 0 20px 5px #e1306c;
+}
+
+#tiktok:hover {
+  transform: translateY(-10px);
+  background-image: linear-gradient(to right, #00ccff, #ac0606);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px 5px #1f1f20;
+}
+
+.social-icons a:hover {
+  border-color: transparent;
+  align-items: center;
+  padding: 8px 9px;
+  border-radius: 50%;
+}
+
+/*Geser*/
+.game {
+  background-color: #1f1f1f;
+  padding-bottom: 17%;
+  margin-bottom: -17px;
+}
+
+.title h2 {
+  padding-top: 15%;
+  margin-bottom: 5%;
+  text-align: center;
+  color: #fff;
+  font-size: 2em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#pergeseran {
+  opacity: 1;
+  visibility: visible;
+  transition: all 1s ease;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  left: 0;
+  padding: 0 50px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.geser a {
+  border: 2px solid #646464;
+  margin: 10px;
+  padding: 0 7px;
+  border-radius: 10px;
+  color: rgb(21, 93, 247);
+  text-decoration: none;
+  /* Menambahkan properti text-decoration */
+}
+
+#pergeseran > * {
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 80px;
+  background: rgba(255, 255, 255, 0.842);
+  color: rgb(0, 0, 0);
+  margin: 0 55px 0 0;
+  scroll-snap-align: center;
+}
+
+#pergeseran > *:last-child {
+  margin-right: 0;
+}
+
+#pergeseran::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  align-self: stretch;
+  padding-left: 50px;
+}
+
+/*MUSIK*/
+.musik {
+  right: 0px;
+  font-size: 17px;
+  background-color: rgb(255, 255, 255);
+  height: 35px;
+  width: 7%;
+  margin-left: 10px;
+}
+
+.musik:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.musik.stop {
+  background-color: rgb(214, 0, 0);
+  color: white;
+}
+
+/* copright */
+footer {
+  position: relative;
+  background-color: #292929;
+  bottom: -1rem;
+  width: auto;
+  padding: 8px;
+}
+
+.bawah p {
+  padding-top: 4px;
+  color: #fff;
+  font-size: 17px;
+}
+
+.bawah {
+  text-align: center;
+}
