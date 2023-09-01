@@ -165,7 +165,6 @@
     font-size: 1.9em;
   }
   .hiburan h2{
-    margin-top: 10%;
     margin-bottom: 5%;
     text-align: center;
     color: #fff;
@@ -174,7 +173,7 @@
 
   #pergeseran {
     margin-top: 7px;
-    margin-bottom: 40%;
+    margin-bottom: 15%;
     opacity: 1;
     visibility: visible;
     transition: all 1s ease;
