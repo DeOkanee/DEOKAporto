@@ -209,7 +209,10 @@ body {
 
 /*Geser*/
 .game {
-  background-color: #1f1f1fad;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
   padding-bottom: 17%;
   margin-bottom: -17px;
 }
@@ -321,7 +324,7 @@ footer {
 .bawah p {
   padding-top: 4px;
   color: #fff;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .bawah {
