@@ -165,11 +165,10 @@
         allowOutsideClick: false,
       });
 
-      let isUsernameSubmitted = false; // Flag untuk melacak status masukan nama pengguna
+      let isUsernameSubmitted = false;
 
       async function start() {
         if (isUsernameSubmitted) {
-          // Jika nama pengguna sudah dimasukkan sebelumnya, langsung lanjutkan ke langkah berikutnya
           setTimeout(mulai, 900);
           return;
         }
@@ -197,29 +196,36 @@
         }
 
         if (username) {
-          // Mengirimkan username ke Google Apps Script
-          const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbzYeefRErFtN4EQCCHLLOJg8oC0E7u_oEVd1cFlFjwDzrsK0G-1OpuSaX-2syoqiJ0/exec",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-              },
-              body: `username=${encodeURIComponent(username)}`,
-            }
-          );
-
-          if (response.ok) {
-            console.log("Data terkirim ke Google Form.");
-          } else {
-            console.error("Gagal mengirim data ke Google Form.");
-          }
+          // Menambahkan kode pengiriman data ke Google Form
+          sendToGoogleForm(username);
 
           document.getElementById("greeting").innerText =
             "Halo " + username + ", saya";
-          isUsernameSubmitted = true; // Mengatur flag isUsernameSubmitted menjadi true
+          isUsernameSubmitted = true;
           setTimeout(mulai, 900);
         }
+      }
+
+      function sendToGoogleForm(username) {
+        const formData = new FormData();
+        formData.append(
+          "entry.1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew",
+          username
+        );
+        // Ganti dengan ID sesuai kolom formulir
+
+        fetch(
+          "https://docs.google.com/forms/d/e/1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew/formResponse",
+          {
+            method: "POST",
+            body: formData,
+          }
+        )
+          .then((response) => response.text())
+          .then((data) =>
+            console.log("Respons terkirim dari formulir Google:", data)
+          )
+          .catch((error) => console.error("Error:", error));
       }
 
       function play() {
@@ -227,9 +233,15 @@
       }
 
       function showDiv() {
-        document.getElementById("fotogoy").style.animation =
-          "fotogoy 2s ease infinite";
-        document.getElementById("Content").style.opacity = "5";
+        const fotogoyElement = document.getElementById("fotogoy");
+        if (fotogoyElement) {
+          fotogoyElement.style.animation = "fotogoy 2s ease infinite";
+        }
+
+        const contentElement = document.getElementById("Content");
+        if (contentElement) {
+          contentElement.style.opacity = "5";
+        }
       }
 
       function mulai() {

@@ -1,4 +1,4 @@
-<script>
+
       const swals = Swal.mixin({
         cancelButtonColor: "#0004ff",
         confirmButtonColor: "#0004ff",
@@ -67,4 +67,3 @@
       }
 
       start();
-    </script>
