@@ -187,16 +187,18 @@
         });
 
         if (dismissReason === Swal.DismissReason.cancel) {
-          Swal.fire({
-            icon: "info",
-            title: "Input dibatalkan",
-            text: "Tolong masukkan Username!",
-          }).then(start);
+          swals
+            .fire({
+              icon: "info",
+              title: "Input dibatalkan",
+              text: "Tolong masukkan Username!",
+            })
+            .then(start);
           return;
         }
 
         if (username) {
-          // Menambahkan kode pengiriman data ke Google Form
+          console.log("Data yang akan dikirim ke Google Form:", username);
           sendToGoogleForm(username);
 
           document.getElementById("greeting").innerText =
@@ -212,12 +214,15 @@
           "entry.1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew",
           username
         );
-        // Ganti dengan ID sesuai kolom formulir
 
         fetch(
           "https://docs.google.com/forms/d/e/1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew/formResponse",
           {
             method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
             body: formData,
           }
         )
@@ -251,9 +256,12 @@
       }
 
       function ketiknm() {
-        document.getElementById("pergeseran").style.opacity = "1";
-        document.getElementById("pergeseran").style.visibility = "visible";
-        document.getElementById("pergeseran").style.margin = "10px 0";
+        const pergeseranElement = document.getElementById("pergeseran");
+        if (pergeseranElement) {
+          pergeseranElement.style.opacity = "1";
+          pergeseranElement.style.visibility = "visible";
+          pergeseranElement.style.margin = "10px 0";
+        }
       }
 
       start();
