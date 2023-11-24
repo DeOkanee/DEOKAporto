@@ -7,7 +7,7 @@
 
 body {
   font-weight: 300 !important;
-  background-image: url("../img/walpaperr.jpeg");
+  background-image: url("/assets/img/walpaperr.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

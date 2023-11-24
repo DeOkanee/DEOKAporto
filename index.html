@@ -62,6 +62,13 @@
       type="text/css"
       href="/assets/css/animasi scrol.css"
     />
+    <!-- Gunakan versi terbaru dari xlsx -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <!-- Tambahkan SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
     <title>Profile De Oka</title>
   </head>
 
@@ -159,114 +166,82 @@
     <!--silde foto-->
 
     <script>
-      const swals = Swal.mixin({
-        cancelButtonColor: "#0004ff",
-        confirmButtonColor: "#0004ff",
-        allowOutsideClick: false,
+const swals = Swal.mixin({
+      cancelButtonColor: "#0004ff",
+      confirmButtonColor: "#0004ff",
+      allowOutsideClick: false,
+    });
+
+    let isUsernameSubmitted = false; // Flag untuk melacak status masukan nama pengguna
+
+    async function start() {
+      if (isUsernameSubmitted) {
+        // Jika nama pengguna sudah dimasukkan sebelumnya, langsung lanjutkan ke langkah berikutnya
+        setTimeout(mulai, 900);
+        return;
+      }
+
+      const { value: username, dismiss: dismissReason } = await Swal.fire({
+        title: "Username?",
+        input: "text",
+        showCancelButton: true,
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Submit",
+        inputValidator: (value) => {
+          if (!value) {
+            return "Tolong masukkan Username!:)";
+          }
+        },
       });
 
-      let isUsernameSubmitted = false;
-
-      async function start() {
-        if (isUsernameSubmitted) {
-          setTimeout(mulai, 900);
-          return;
-        }
-
-        const { value: username, dismiss: dismissReason } = await Swal.fire({
-          title: "Username?",
-          input: "text",
-          showCancelButton: true,
-          cancelButtonText: "Cancel",
-          confirmButtonText: "Submit",
-          inputValidator: (value) => {
-            if (!value) {
-              return "Tolong masukkan Username!:)";
-            }
-          },
-        });
-
-        if (dismissReason === Swal.DismissReason.cancel) {
-          swals
-            .fire({
-              icon: "info",
-              title: "Input dibatalkan",
-              text: "Tolong masukkan Username!",
-            })
-            .then(start);
-          return;
-        }
-
-        if (username) {
-          console.log("Data yang akan dikirim ke Google Form:", username);
-          sendToGoogleForm(username);
-
-          document.getElementById("greeting").innerText =
-            "Halo " + username + ", saya";
-          isUsernameSubmitted = true;
-          setTimeout(mulai, 900);
-        }
+      if (dismissReason === Swal.DismissReason.cancel) {
+        Swal.fire({
+          icon: "info",
+          title: "Input dibatalkan",
+          text: "Tolong masukkan Username!",
+        }).then(start);
+        return;
       }
 
-      function sendToGoogleForm(username) {
-        const formData = new FormData();
-        formData.append(
-          "entry.1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew",
-          username
-        );
-
-        fetch(
-          "https://docs.google.com/forms/d/e/1FAIpQLSe5hfMjRaV2HTNl5QsSgB9kw8dcQ7PYtTPugo93BmpGbsVpew/formResponse",
-          {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: formData,
-          }
-        )
-          .then((response) => response.text())
-          .then((data) =>
-            console.log("Respons terkirim dari formulir Google:", data)
-          )
-          .catch((error) => console.error("Error:", error));
+      if (username) {
+        document.getElementById("greeting").innerText =
+          "Halo " + username + ", saya";
+        isUsernameSubmitted = true; // Mengatur flag isUsernameSubmitted menjadi true
+        saveToTextFile(username);
+        setTimeout(mulai, 900);
       }
+    }
 
-      function play() {
-        // Tambahkan logika pemutaran di sini
-      }
+    function play() {
+      // Tambahkan logika pemutaran di sini
+    }
 
-      function showDiv() {
-        const fotogoyElement = document.getElementById("fotogoy");
-        if (fotogoyElement) {
-          fotogoyElement.style.animation = "fotogoy 2s ease infinite";
-        }
+    function showDiv() {
+      document.getElementById("fotogoy").style.animation =
+        "fotogoy 2s ease infinite";
+      document.getElementById("Content").style.opacity = "5";
+    }
 
-        const contentElement = document.getElementById("Content");
-        if (contentElement) {
-          contentElement.style.opacity = "5";
-        }
-      }
+    function mulai() {
+      ketiknm();
+      showDiv();
+      play();
+    }
 
-      function mulai() {
-        ketiknm();
-        showDiv();
-        play();
-      }
+    function ketiknm() {
+      document.getElementById("pergeseran").style.opacity = "1";
+      document.getElementById("pergeseran").style.visibility = "visible";
+      document.getElementById("pergeseran").style.margin = "10px 0";
+    }
 
-      function ketiknm() {
-        const pergeseranElement = document.getElementById("pergeseran");
-        if (pergeseranElement) {
-          pergeseranElement.style.opacity = "1";
-          pergeseranElement.style.visibility = "visible";
-          pergeseranElement.style.margin = "10px 0";
-        }
-      }
+    function saveToTextFile(username) {
+      const textData = `Username: ${username}`;
+      const blob = new Blob([textData], { type: 'text/plain' });
+      saveAs(blob, 'notepad.txt');
+    }
 
-      start();
+    start();
     </script>
-
     <!--Muncul awal-->
     <!--slider-->
 
