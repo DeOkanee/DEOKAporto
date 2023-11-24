@@ -140,7 +140,7 @@
         </div>
       </div>
     </section>
-<!--AKHIR GAME-->
+    <!--AKHIR GAME-->
     <script src="/assets/css/scrol.js"></script>
     <!-- JQuery -->
     <script
@@ -166,6 +166,39 @@
       });
 
       let isUsernameSubmitted = false; // Flag untuk melacak status masukan nama pengguna
+
+      // Fungsi untuk menulis username ke Google Sheets menggunakan Google Sheets API
+      async function writeUsernameToGoogleSheets(username) {
+        const apiKey = "AIzaSyDHhcLOJ3i3hXCD46-n7aUNxDkz7eh-0T4";
+        const spreadsheetId = "1fAdC964mQQYt3xW_9o7G2ymkb8JvWdtbT9BolDTaqrg";
+
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
+
+        const data = {
+          values: [[username]],
+        };
+
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            console.log("Username berhasil disimpan di Google Sheets.");
+            return true;
+          } else {
+            console.error("Gagal menyimpan username. Status:", response.status);
+            return false;
+          }
+        } catch (error) {
+          console.error("Terjadi kesalahan:", error.message);
+          return false;
+        }
+      }
 
       async function start() {
         if (isUsernameSubmitted) {
@@ -197,10 +230,21 @@
         }
 
         if (username) {
-          document.getElementById("greeting").innerText =
-            "Halo " + username + ", saya";
-          isUsernameSubmitted = true; // Mengatur flag isUsernameSubmitted menjadi true
-          setTimeout(mulai, 900);
+          // Menyimpan username ke Google Sheets
+          const success = await writeUsernameToGoogleSheets(username);
+
+          if (success) {
+            document.getElementById("greeting").innerText =
+              "Halo " + username + ", saya";
+            isUsernameSubmitted = true; // Mengatur flag isUsernameSubmitted menjadi true
+            setTimeout(mulai, 900);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Gagal menyimpan username",
+              text: "Terjadi kesalahan saat menyimpan username.",
+            }).then(start);
+          }
         }
       }
 
@@ -231,13 +275,10 @@
 
     <!--Muncul awal-->
     <!--slider-->
-    
-    <footer>
 
+    <footer>
       <div class="bawah">
-        <p align="center">
-          © De Oka | 2022 
-        </p>
+        <p align="center">© De Oka | 2022</p>
       </div>
       <!--SCRIPT AUDIO-->
       <script>
